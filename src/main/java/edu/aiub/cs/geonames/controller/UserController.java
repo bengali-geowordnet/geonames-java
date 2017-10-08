@@ -32,9 +32,9 @@ public class UserController {
     String addNewUser(@RequestParam String name) {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        User user = new User();
+        /*User user = new User();
         user.setName(name);
-        userRepository.save(user);
+        userRepository.save(user);*/
         return "Saved";
     }
 
@@ -59,7 +59,8 @@ public class UserController {
 
     @RequestMapping(value = "/show", method = RequestMethod.POST)
     public User createUser(@RequestParam(value = "name", defaultValue = "User") String name) {
-        return new User(createCounter.incrementAndGet(),
-                String.format(template, name));
+        /*return new User(createCounter.incrementAndGet(),
+                String.format(template, name));*/
+        return new User("email","7777777");
     }
 }

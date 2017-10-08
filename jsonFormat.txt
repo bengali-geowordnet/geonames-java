@@ -1,0 +1,25 @@
+{
+  "userList":{{
+    "token": "c19ef553e1bb4e191a77000000323f94a55e3491",
+   "email": "youname@mail.com"
+  }},
+  "geonameList":{{
+    "name": "name",
+    "asciiname": "name string",
+    "alternatenames": "altenate name string",
+    "latitude": 10.55,
+    "longitude": 10.00,
+    "feature_class": "className",
+    "feature_code": "C",
+    "country_code": "BD",
+    "cc2": "BD",
+    "admin1_code": "fipscode ",
+    "admin2_code": "fipscode ",
+    "admin3_code": "fipscode ",
+    "admin4_code": "fipscode ",
+    "population": 9999,
+    "elevation": 99,
+    "dem": 99,
+    "timezone": "Astana/Dhaka"
+  }}
+}

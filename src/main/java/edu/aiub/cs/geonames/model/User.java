@@ -14,14 +14,15 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String name;
+    private String email;
+    private String token;
 
     public User() {
     }
 
-    public User(long id, String name) {
-        this.id = id;
-        this.name = name;
+    public User(String email, String token) {
+        this.email = email;
+        this.token = token;
     }
 
     public long getId() {
@@ -32,11 +33,19 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

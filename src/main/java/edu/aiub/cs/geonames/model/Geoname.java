@@ -21,7 +21,7 @@ public class Geoname {
     private String alternatenames;
     private double latitude;
     private double longitude;
-    private char feature_class;
+    private String feature_class;
     private String feature_code;
     private String country_code;
     private String cc2;
@@ -39,7 +39,7 @@ public class Geoname {
 
     }
 
-    public Geoname(long geonameId, String name, String asciiname, String alternatenames, double latitude, double longitude, char feature_class, String feature_code, String country_code, String cc2, String admin1_code, String admin2_code, String admin3_code, String admin4_code, long population, int elevation, long dem, String timezone, String modification_date) {
+    public Geoname(long geonameId, String name, String asciiname, String alternatenames, double latitude, double longitude, String feature_class, String feature_code, String country_code, String cc2, String admin1_code, String admin2_code, String admin3_code, String admin4_code, long population, int elevation, long dem, String timezone, String modification_date) {
         this.geonameId = geonameId;
         this.name = name;
         this.asciiname = asciiname;
@@ -117,11 +117,11 @@ public class Geoname {
         this.longitude = longitude;
     }
 
-    public char getFeature_class() {
+    public String getFeature_class() {
         return feature_class;
     }
 
-    public void setFeature_class(char feature_class) {
+    public void setFeature_class(String feature_class) {
         this.feature_class = feature_class;
     }
 
