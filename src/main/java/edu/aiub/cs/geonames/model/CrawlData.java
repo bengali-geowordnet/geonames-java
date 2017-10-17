@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by Farhan Ar Rafi on 10/17/17.
@@ -24,8 +24,7 @@ public class CrawlData {
     private String collectionSource;
 
     @NotNull
-    @CreationTimestamp
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp collectionTime;
+    private Date collectionTime;
 }
