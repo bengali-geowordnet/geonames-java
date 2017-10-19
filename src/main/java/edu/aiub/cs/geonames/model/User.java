@@ -1,51 +1,95 @@
 package edu.aiub.cs.geonames.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.util.Date;
+
+import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 
 /**
- * Created by Sk.GolamMuhammad on 9/17/2017.
+ * Created by Sk Golam Muhammad Hasnain on 10/19/17.
  */
-@Entity  // This tells Hibernate to make a table out of this class
+
+/*CREATE TABLE `user` (
+        `userId` int(11) NOT NULL,
+        `userName` varchar(200) NOT NULL,
+        `userType` varchar(200) NOT NULL,
+        `fullName` varchar(200) NOT NULL,
+        `dateOfBirth` date NOT NULL,
+        `gender` varchar(100) NOT NULL,
+        `address` varchar(500) NOT NULL,
+        `contactNumber` int(11) NOT NULL,
+        `age` int(11) NOT NULL,
+        `country` varchar(100) NOT NULL,
+        `education` varchar(300) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
+
+@Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String email;
-    private String token;
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Length(max = CD_ID_LENGTH)
+    @Column(name = "userId", length = CD_ID_LENGTH)
+    private int userId;
 
-    public User() {
-    }
+    @NotNull
+    @Length(max = 200)
+    @Column(name = "userName")
+    private String userName;
 
-    public User(String email, String token) {
-        this.email = email;
-        this.token = token;
-    }
+    @NotNull
+    @Length(max = 200)
+    @Column(name = "userType")
+    private String userType;
 
-    public long getId() {
-        return id;
-    }
+    @NotNull
+    @Length(max = 200)
+    @Column(name = "fullName")
+    private String fullName;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @NotNull
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateOfBirth;
 
-    public String getEmail() {
-        return email;
-    }
+    @NotNull
+    @Length(max = 100)
+    @Column(name = "gender")
+    private String gender;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    @NotNull
+    @Length(max = 500)
+    @Column(name = "address")
+    private String address;
 
-    public String getToken() {
-        return token;
-    }
+    @NotNull
+    @Length(max = CD_ID_LENGTH)
+    @Column(name = "contactNumber", length = CD_ID_LENGTH)
+    private int contactNumber;
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+    @NotNull
+    @Length(max = CD_ID_LENGTH)
+    @Column(name = "age", length = CD_ID_LENGTH)
+    private int age;
+
+    @NotNull
+    @Length(max = 100)
+    @Column(name = "country")
+    private String country;
+
+    @NotNull
+    @Length(max = 300)
+    @Column(name = "education")
+    private String education;
+
 }

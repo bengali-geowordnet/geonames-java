@@ -13,6 +13,14 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 /**
  * Created by Farhan Ar Rafi on 10/17/17.
  */
+
+/*CREATE TABLE `collectedconcepts` (
+        `collectedConceptsId` int(11) NOT NULL,
+        `domainName` varchar(200) NOT NULL,
+        `keyWord` varchar(200) NOT NULL,
+        `conceptData` varchar(300) NOT NULL
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
+
 @Entity
 public class CollectedConcepts {
 

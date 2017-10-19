@@ -6,19 +6,20 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
+import static edu.aiub.cs.geonames.utility.Constants.CD_RID_LENGTH;
 
 /**
  * Created by Sk Golam Muhammad Hasnain on 10/19/17.
  */
 
-/*CREATE TABLE `knowledgebase` (
-        `knowledgeBaseId` int(11) NOT NULL,
-        `name` varchar(200) NOT NULL,
-        `type` varchar(200) NOT NULL
+/*CREATE TABLE `region` (
+        `regionId` int(200) NOT NULL,
+        `regionName` varchar(100) NOT NULL,
+        `regionType` varchar(100) NOT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
 @Entity
-public class KnowledgeBase {
+public class Region {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,17 +27,17 @@ public class KnowledgeBase {
 
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Length(max = CD_ID_LENGTH)
-    @Column(name = "appId", length = CD_ID_LENGTH)
-    private int knowledgeBaseId;
+    @Length(max = CD_RID_LENGTH)
+    @Column(name = "regionId", length = CD_RID_LENGTH)
+    private int regionId;
 
     @NotNull
-    @Length(max = 200)
-    @Column(name = "name")
-    private String name;
+    @Length(max = 100)
+    @Column(name = "regionName")
+    private String regionName;
 
     @NotNull
-    @Length(max = 200)
-    @Column(name = "type")
-    private String type;
+    @Length(max = 100)
+    @Column(name = "regionType")
+    private String regionType;
 }

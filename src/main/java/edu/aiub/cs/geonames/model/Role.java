@@ -10,15 +10,15 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 /**
  * Created by Sk Golam Muhammad Hasnain on 10/19/17.
  */
-
-/*CREATE TABLE `knowledgebase` (
-        `knowledgeBaseId` int(11) NOT NULL,
-        `name` varchar(200) NOT NULL,
-        `type` varchar(200) NOT NULL
+/*CREATE TABLE `role` (
+        `roleId` int(11) NOT NULL,
+        `roleName` varchar(200) NOT NULL,
+        `assignedTo` varchar(200) NOT NULL,
+        `userId` int(11) NOT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
 @Entity
-public class KnowledgeBase {
+public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,16 +27,21 @@ public class KnowledgeBase {
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Length(max = CD_ID_LENGTH)
-    @Column(name = "appId", length = CD_ID_LENGTH)
-    private int knowledgeBaseId;
+    @Column(name = "roleId", length = CD_ID_LENGTH)
+    private int roleId;
 
     @NotNull
     @Length(max = 200)
-    @Column(name = "name")
+    @Column(name = "roleName")
     private String name;
 
     @NotNull
     @Length(max = 200)
-    @Column(name = "type")
-    private String type;
+    @Column(name = "assignedTo")
+    private String assignedTo;
+
+    @NotNull
+    @Length(max = CD_ID_LENGTH)
+    @Column(name = "userId", length = CD_ID_LENGTH)
+    private int userId;
 }

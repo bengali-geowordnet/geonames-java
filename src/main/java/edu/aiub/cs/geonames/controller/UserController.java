@@ -1,6 +1,5 @@
 package edu.aiub.cs.geonames.controller;
 
-import edu.aiub.cs.geonames.model.User;
 import edu.aiub.cs.geonames.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
