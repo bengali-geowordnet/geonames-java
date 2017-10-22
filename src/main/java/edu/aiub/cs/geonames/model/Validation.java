@@ -17,12 +17,10 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_MID_LENGTH;
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
 @Entity
-public class validation {
+public class Validation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     @NotNull
     @Length(max = CD_MID_LENGTH)
     @Column(name = "validationId", length = CD_MID_LENGTH)

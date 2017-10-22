@@ -23,9 +23,6 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 public class Location {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Length(max = CD_ID_LENGTH)
@@ -39,13 +36,13 @@ public class Location {
 
     @NotNull
     @Length(max = 200)
-    @Column(name = "lattitude")
-    private String lattitude;
+    @Column(name = "latitude")
+    private String latitude;
 
     @NotNull
     @Length(max = 200)
-    @Column(name = "longitudde")
-    private String longitudde;
+    @Column(name = "longitude")
+    private String longitude;
 
 
     @NotNull

@@ -22,8 +22,6 @@ public class AppInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     @NotNull
     @Length(max = CD_ID_LENGTH)
     @Column(name = "appId", length = CD_ID_LENGTH)
@@ -36,5 +34,6 @@ public class AppInfo {
 
     @NotNull
     @Length(max = 100)
+    @Column(name = "appType")
     private String appType;
 }

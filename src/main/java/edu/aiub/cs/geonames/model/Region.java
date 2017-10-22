@@ -22,13 +22,10 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_RID_LENGTH;
 public class Region {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Length(max = CD_RID_LENGTH)
-    @Column(name = "regionId", length = CD_RID_LENGTH)
+    @Length(max = CD_ID_LENGTH)
+    @Column(name = "regionId", length = CD_ID_LENGTH)
     private int regionId;
 
     @NotNull

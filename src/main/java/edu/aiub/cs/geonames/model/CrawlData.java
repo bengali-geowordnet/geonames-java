@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 
 import java.util.Date;
 
+import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
+
 /**
  * Created by Farhan Ar Rafi on 10/17/17.
  */
@@ -23,7 +25,9 @@ public class CrawlData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @NotNull
+    @Length(max = CD_ID_LENGTH)
+    private long crawlDataId;
 
     @NotNull
     @Length(max = 500)

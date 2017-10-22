@@ -22,9 +22,6 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_MID_LENGTH;
 public class Metadata {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Length(max = CD_MID_LENGTH)

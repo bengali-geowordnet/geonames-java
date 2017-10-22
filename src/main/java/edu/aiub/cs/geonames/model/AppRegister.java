@@ -25,8 +25,6 @@ public class AppRegister {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
     @NotNull
     @Length(max = CD_ID_LENGTH)
     private int registerId;

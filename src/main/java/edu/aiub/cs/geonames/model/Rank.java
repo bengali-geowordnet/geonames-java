@@ -22,8 +22,10 @@ CREATE TABLE `rank` (
 public class Rank {
 
     @Id
+    @NotNull
+    @Column(name = "rankId", length = CD_ID_LENGTH)
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long rankId;
 
     @NotNull
     @Length(max = 200)

@@ -1,5 +1,10 @@
 package edu.aiub.cs.geonames.controller;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.aiub.cs.geonames.model.Data;
+import edu.aiub.cs.geonames.model.User;
 import edu.aiub.cs.geonames.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
@@ -26,15 +32,19 @@ public class UserController {
     private UserRepository userRepository;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    //@PostMapping(path="/add") // Map ONLY POST Requests
     public @ResponseBody
-    String addNewUser(@RequestParam String name) {
+    String addNewUser(@RequestParam String json) {
+        ObjectMapper mapper = new ObjectMapper();
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
-        /*User user = new User();
-        user.setName(name);
-        userRepository.save(user);*/
-        return "Saved";
+        try{
+            User newUser = mapper.readValue(json, User.class);
+            userRepository.save(newUser);
+        }
+        catch (JsonParseException e) { e.printStackTrace();}
+        catch (JsonMappingException e) { e.printStackTrace(); }
+        catch (IOException e) { e.printStackTrace(); }
+        return "{status:'OK'}";
     }
 
     /*@RequestMapping(value = "/user", method = RequestMethod.GET)
@@ -56,10 +66,10 @@ public class UserController {
         return "showUser";
     }
 
-    @RequestMapping(value = "/show", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/show", method = RequestMethod.POST)
     public User createUser(@RequestParam(value = "name", defaultValue = "User") String name) {
-        /*return new User(createCounter.incrementAndGet(),
-                String.format(template, name));*/
+        *//*return new User(createCounter.incrementAndGet(),
+                String.format(template, name));*//*
         return new User("email","7777777");
-    }
+    }*/
 }

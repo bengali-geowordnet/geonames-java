@@ -34,10 +34,6 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-
-    @NotNull
-    @GeneratedValue(strategy = GenerationType.AUTO)
     @Length(max = CD_ID_LENGTH)
     @Column(name = "userId", length = CD_ID_LENGTH)
     private int userId;
