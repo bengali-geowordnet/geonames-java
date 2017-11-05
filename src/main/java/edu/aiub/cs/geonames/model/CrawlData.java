@@ -20,6 +20,13 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
         `collectionTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
+/**
+ *                   ************** FOR SECOND STAGE ***************
+ *
+ *
+ * Data from this CrawlData.class will be validated using data from CollectedConcepts.class
+ * THis validation info will be stored in Validation.class
+ */
 @Entity
 public class CrawlData {
 
@@ -29,6 +36,10 @@ public class CrawlData {
     @Length(max = CD_ID_LENGTH)
     private long crawlDataId;
 
+    /**
+     * This stores the crawled data from different sources.
+     * For example, google, newspapers, etc.
+     */
     @NotNull
     @Length(max = 500)
     private String collectionSource;

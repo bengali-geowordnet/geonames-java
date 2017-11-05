@@ -18,6 +18,14 @@ CREATE TABLE `rank` (
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 */
 
+/**
+ *                  ************** FOR SECOND STAGE ***************
+ *
+ * This class is used for App Ranking to determine which apps give good data.
+ * THis class will also be used for User Ranking to determine which user gives good data.
+ * THis class is also used to rank concepts based on data from CollectedConcepts using probability.
+ * Here probability theory is the higher probability will give us the actual ranking.
+ */
 @Entity
 public class Rank {
 

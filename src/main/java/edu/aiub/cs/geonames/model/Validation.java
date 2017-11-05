@@ -16,6 +16,10 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_MID_LENGTH;
         `validationType` varchar(100) NOT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
+/**
+ *                  ************** FOR SECOND STAGE ***************
+ *
+ */
 @Entity
 public class Validation {
 

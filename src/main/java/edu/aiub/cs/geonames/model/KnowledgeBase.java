@@ -17,6 +17,10 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
         `type` varchar(200) NOT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
+/**
+ *                 ************** FOR SECOND STAGE ***************
+ *
+ */
 @Entity
 public class KnowledgeBase {
 
