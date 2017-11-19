@@ -23,17 +23,48 @@ public class AppInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Length(max = CD_ID_LENGTH)
-    @Column(name = "appId", length = CD_ID_LENGTH)
+    @Column(name = "appId")
     private int appId;
 
     @NotNull
     @Length(max = 100)
-    @Column(name = "appName")
-    private String appName;
+    @Column(name = "name")
+    private String name;
 
     @NotNull
     @Length(max = 100)
-    @Column(name = "appType")
-    private String appType;
+    @Column(name = "type")
+    private String type;
+
+    public AppInfo() {
+    }
+
+    public AppInfo(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public int getAppId() {
+        return appId;
+    }
+
+    public void setAppId(int appId) {
+        this.appId = appId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

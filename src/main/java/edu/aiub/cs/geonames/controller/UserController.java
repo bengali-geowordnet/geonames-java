@@ -17,6 +17,18 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Created by Sk.GolamMuhammad on 9/17/2017.
+ * {
+ "name": "A",
+ "type": "user",
+ "fullName": "A A A",
+ "dateOfBirth": "1997-11-07 00:00:00",
+ "gender": "male",
+ "address": "Road -23, Block - B",
+ "phone": "01711111111",
+ "age": 23,
+ "country": "BD",
+ "education": "Secondary"
+ }
  */
 @Controller
 @RequestMapping(path = "/user")
@@ -33,11 +45,11 @@ public class UserController {
     public @ResponseBody
     String addNewUser(@RequestParam String json) {
         ObjectMapper mapper = new ObjectMapper();
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
         try {
-            User newUser = mapper.readValue(json, User.class);
-            userRepository.save(newUser);
+            User user = mapper.readValue(json, User.class);
+            userRepository.save(user);
+            return mapper.writeValueAsString(user);
+            //return "{status:'OK'}";
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {
@@ -45,6 +57,6 @@ public class UserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "{status:'OK'}";
+        return "{status:'ERROR'}";
     }
 }
