@@ -1,4 +1,4 @@
-package edu.aiub.cs.geonames.model;
+package edu.aiub.cs.geonames.model.base;
 
 import org.hibernate.validator.constraints.Length;
 

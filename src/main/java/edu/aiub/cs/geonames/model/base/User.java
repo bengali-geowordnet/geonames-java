@@ -1,12 +1,10 @@
-package edu.aiub.cs.geonames.model;
+package edu.aiub.cs.geonames.model.base;
 
+import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.annotations.UpdateTimestamp;
-
 import java.util.Date;
 
 import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;

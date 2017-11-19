@@ -1,12 +1,10 @@
-package edu.aiub.cs.geonames.model;
+package edu.aiub.cs.geonames.model.base;
 
-import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
 import java.util.Date;
 
 import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
@@ -21,9 +19,9 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
 /**
- *                   ************** FOR SECOND STAGE ***************
- *
- *
+ * ************** FOR SECOND STAGE ***************
+ * <p>
+ * <p>
  * Data from this CrawlData.class will be validated using data from CollectedConcepts.class
  * THis validation info will be stored in Validation.class
  */

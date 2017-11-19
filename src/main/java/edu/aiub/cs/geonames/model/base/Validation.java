@@ -1,4 +1,4 @@
-package edu.aiub.cs.geonames.model;
+package edu.aiub.cs.geonames.model.base;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -17,8 +17,7 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_MID_LENGTH;
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
 /**
- *                  ************** FOR SECOND STAGE ***************
- *
+ * ************** FOR SECOND STAGE ***************
  */
 @Entity
 public class Validation {

@@ -4,8 +4,11 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.aiub.cs.geonames.model.Data;
-import edu.aiub.cs.geonames.model.Geoname;
-import edu.aiub.cs.geonames.repository.GeonameRepository;
+import edu.aiub.cs.geonames.model.base.AppRegister;
+import edu.aiub.cs.geonames.model.base.Location;
+import edu.aiub.cs.geonames.model.base.Region;
+import edu.aiub.cs.geonames.repository.LocationRepository;
+import edu.aiub.cs.geonames.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,41 +28,39 @@ import java.io.IOException;
 public class DataController {
 
     @Autowired
-    private GeonameRepository geonameRepository;
+    LocationRepository locationRepository;
+
+    @Autowired
+    RegionRepository regionRepository;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    //@PostMapping(path="/add") // Map ONLY POST Requests
     public @ResponseBody
     String addNewUser(@RequestParam String jsonStr) {
 
-        /*Geoname geoname = new Geoname();
-        geoname.setGeonameId(geonameid);
-        geoname.setName(name);
-        geonameRepository.save(geoname);*/
 
         ObjectMapper mapper = new ObjectMapper();
-        //String jsonStr = "{\"name\":\"Mahesh\"}";
+        Data data;
+        try {
 
-        //map json to student
-        Geoname geoname = new Geoname();
-        try{
-
-            Data data = mapper.readValue(jsonStr, Data.class);
-
-            geoname = data.getGeoname();
-            System.out.println(geoname.getCountry_code());
-            geonameRepository.save(geoname);
-            return mapper.writeValueAsString(geoname.getName());
+            data = mapper.readValue(jsonStr, Data.class);
+            Location location = data.getLocation();
+            int appRegisterId = data.getAppRegisterID();
+            Region region = data.getRegion();
+            //dataRepository.save(data);
+            return mapper.writeValueAsString(data);
             //System.out.println(data);
 
             //jsonStr = mapper.writeValueAsString(data);
 
             //System.out.println(jsonStr);
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        } catch (JsonMappingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch (JsonParseException e) { e.printStackTrace();}
-        catch (JsonMappingException e) { e.printStackTrace(); }
-        catch (IOException e) { e.printStackTrace(); }
 
-        return "";
+        return "SOME ERROR HAS OCCURRED";
     }
 }

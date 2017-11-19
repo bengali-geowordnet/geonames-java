@@ -1,4 +1,4 @@
-package edu.aiub.cs.geonames.model;
+package edu.aiub.cs.geonames.model.base;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
-import static edu.aiub.cs.geonames.utility.Constants.CD_RID_LENGTH;
 
 /**
  * Created by Sk Golam Muhammad Hasnain on 10/19/17.
@@ -30,11 +29,43 @@ public class Region {
 
     @NotNull
     @Length(max = 100)
-    @Column(name = "regionName")
-    private String regionName;
+    @Column(name = "name")
+    private String name;
 
     @NotNull
     @Length(max = 100)
-    @Column(name = "regionType")
-    private String regionType;
+    @Column(name = "type")
+    private String type;
+
+    public Region() {
+    }
+
+    public Region(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+
+    public int getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(int regionId) {
+        this.regionId = regionId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
