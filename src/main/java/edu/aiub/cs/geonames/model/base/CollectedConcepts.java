@@ -2,10 +2,7 @@ package edu.aiub.cs.geonames.model.base;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
@@ -30,14 +27,14 @@ public class CollectedConcepts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Length(max = CD_ID_LENGTH)
-    private int collectedConceptsId;
+    @Column(name = "collectedConceptsId")
+    private long collectedConceptsId;
 
     /**
      * THis is the domain of the concept.
      */
     @NotNull
-    @Length(max = 200)
+    @Column(name = "domainName")
     private String domainName;
 
     /**
@@ -47,7 +44,7 @@ public class CollectedConcepts {
      * keyWord 1_______* conceptData
      */
     @NotNull
-    @Length(max = 200)
+    @Column(name = "keyWord")
     private String keyWord;
 
     /**
@@ -57,7 +54,7 @@ public class CollectedConcepts {
      * From this we will use probability to find the best concept.
      */
     @NotNull
-    @Length(max = 300)
+    @Column(name = "conceptData")
     private String conceptData;
 
     public CollectedConcepts() {

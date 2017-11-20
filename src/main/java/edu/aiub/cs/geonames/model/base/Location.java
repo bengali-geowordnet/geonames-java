@@ -25,42 +25,35 @@ public class Location {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Length(max = CD_ID_LENGTH)
-    @Column(name = "locationId", length = CD_ID_LENGTH)
-    private int locationId;
+    @Column(name = "locationId")
+    private long locationId;
 
     @NotNull
-    @Length(max = 300)
     @Column(name = "name")
     private String name;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "latitude")
-    private String latitude;
+    private double latitude;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "longitude")
-    private String longitude;
+    private double longitude;
 
-    @Length(max = 200)
     @Column(name = "altitude")
-    private int altitude;
+    private double altitude;
 
-    @Length(max = 200)
     @Column(name = "elevation")
-    private int elevation;
+    private double elevation;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "type")
     private String type;
 
     public Location() {
     }
 
-    public Location(String name, String latitude, String longitude, int altitude, int elevation, String type) {
+    public Location(String name, double latitude, double longitude, double altitude, double elevation, String type) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -69,11 +62,11 @@ public class Location {
         this.type = type;
     }
 
-    public int getLocationId() {
+    public long getLocationId() {
         return locationId;
     }
 
-    public void setLocationId(int locationId) {
+    public void setLocationId(long locationId) {
         this.locationId = locationId;
     }
 
@@ -81,39 +74,39 @@ public class Location {
         return name;
     }
 
-    public void setName(String locName) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public int getAltitude() {
+    public double getAltitude() {
         return altitude;
     }
 
-    public void setAltitude(int altitude) {
+    public void setAltitude(double altitude) {
         this.altitude = altitude;
     }
 
-    public int getElevation() {
+    public double getElevation() {
         return elevation;
     }
 
-    public void setElevation(int elevation) {
+    public void setElevation(double elevation) {
         this.elevation = elevation;
     }
 
@@ -121,7 +114,7 @@ public class Location {
         return type;
     }
 
-    public void setType(String locType) {
+    public void setType(String type) {
         this.type = type;
     }
 }

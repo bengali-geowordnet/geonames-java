@@ -4,8 +4,10 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.aiub.cs.geonames.model.Data;
+import edu.aiub.cs.geonames.model.UserData;
 import edu.aiub.cs.geonames.model.base.Location;
 import edu.aiub.cs.geonames.model.base.Region;
+import edu.aiub.cs.geonames.repository.DataRepository;
 import edu.aiub.cs.geonames.repository.LocationRepository;
 import edu.aiub.cs.geonames.repository.RegionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,29 +50,29 @@ public class DataController {
     @Autowired
     RegionRepository regionRepository;
 
+    @Autowired
+    DataRepository dataRepository;
+
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public @ResponseBody
     String addNewUser(@RequestParam String jsonStr) {
 
 
         ObjectMapper mapper = new ObjectMapper();
-        Data data;
+        UserData userData;
         try {
 
-            data = mapper.readValue(jsonStr, Data.class);
-            int appInfoId = data.getAppInfoId();
-            int userId = data.getUserId();
-            Location location = data.getLocation();
-            Region region = data.getRegion();
-            //locationRepository.save(location);
-            //regionRepository.save(region);
-            //dataRepository.save(data);
-            return mapper.writeValueAsString(data);
-            //System.out.println(data);
-
-            //jsonStr = mapper.writeValueAsString(data);
-
-            //System.out.println(jsonStr);
+            userData = mapper.readValue(jsonStr, UserData.class);
+            int appInfoId = userData.getAppInfoId();
+            int userId = userData.getUserId();
+            Location location = userData.getLocation();
+            Region region = userData.getRegion();
+            location = locationRepository.save(location);
+            region = regionRepository.save(region);
+            Data data = new Data(userId,appInfoId,location.getLocationId(),region.getRegionId());
+            dataRepository.save(data);
+            //return mapper.writeValueAsString(userData);
+            return "{status:'OK'}";
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {

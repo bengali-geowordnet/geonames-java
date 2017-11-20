@@ -31,7 +31,7 @@ public class CrawlData {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Length(max = CD_ID_LENGTH)
+    @Column(name = "crawlDataId")
     private long crawlDataId;
 
     /**
@@ -39,11 +39,13 @@ public class CrawlData {
      * For example, google, newspapers, etc.
      */
     @NotNull
-    @Length(max = 500)
+    @Column(name = "collectionSource")
     private String collectionSource;
 
     @NotNull
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
+
+    @Column(name = "collectionTime")
     private Date collectionTime;
 }

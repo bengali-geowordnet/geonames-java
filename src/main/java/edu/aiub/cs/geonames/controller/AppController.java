@@ -46,7 +46,8 @@ public class AppController {
         try {
             appInfo = mapper.readValue(json, AppInfo.class);
             appInfoRepository.save(appInfo);
-            return mapper.writeValueAsString(appInfo);
+            //return mapper.writeValueAsString(appInfo);
+            return "{status:'OK'}";
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {

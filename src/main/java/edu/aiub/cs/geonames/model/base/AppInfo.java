@@ -12,9 +12,9 @@ import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
  */
 /*
 CREATE TABLE `appregister` (
-        `registerId` int(11) NOT NULL,
-        `userId` int(11) NOT NULL,
-        `appId` int(11) NOT NULL
+        `registerId` long(11) NOT NULL,
+        `userId` long(11) NOT NULL,
+        `appId` long(11) NOT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=latin1;*/
 
 @Entity
@@ -24,15 +24,13 @@ public class AppInfo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
     @Column(name = "appId")
-    private int appId;
+    private long appId;
 
     @NotNull
-    @Length(max = 100)
     @Column(name = "name")
     private String name;
 
     @NotNull
-    @Length(max = 100)
     @Column(name = "type")
     private String type;
 
@@ -44,11 +42,11 @@ public class AppInfo {
         this.type = type;
     }
 
-    public int getAppId() {
+    public long getAppId() {
         return appId;
     }
 
-    public void setAppId(int appId) {
+    public void setAppId(long appId) {
         this.appId = appId;
     }
 

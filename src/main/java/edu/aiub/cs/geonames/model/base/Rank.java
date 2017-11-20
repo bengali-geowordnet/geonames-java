@@ -31,17 +31,15 @@ public class Rank {
 
     @Id
     @NotNull
-    @Column(name = "rankId", length = CD_ID_LENGTH)
+    @Column(name = "rankId")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long rankId;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "rankType")
     private String rankType;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "basedOn")
     private String basedOn;
 }

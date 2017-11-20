@@ -26,17 +26,14 @@ public class KnowledgeBase {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Length(max = CD_ID_LENGTH)
-    @Column(name = "appId", length = CD_ID_LENGTH)
-    private int knowledgeBaseId;
+    @Column(name = "knowledgeBaseId")
+    private long knowledgeBaseId;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "name")
     private String name;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "type")
     private String type;
 }

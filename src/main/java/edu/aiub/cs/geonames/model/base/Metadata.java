@@ -24,22 +24,18 @@ public class Metadata {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Length(max = CD_MID_LENGTH)
-    @Column(name = "metaId", length = CD_MID_LENGTH)
-    private int metaId;
+    @Column(name = "metaId")
+    private long metaId;
 
     @NotNull
-    @Length(max = CD_MID_LENGTH)
-    @Column(name = "appId", length = CD_MID_LENGTH)
+    @Column(name = "appId")
     private int appId;
 
     @NotNull
-    @Length(max = 500)
     @Column(name = "typeOfData")
     private String typeOfData;
 
     @NotNull
-    @Length(max = 500)
     @Column(name = "dataDescription")
     private String dataDescription;
 

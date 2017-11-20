@@ -25,12 +25,10 @@ public class Validation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Length(max = CD_MID_LENGTH)
-    @Column(name = "validationId", length = CD_MID_LENGTH)
-    private int validationId;
+    @Column(name = "validationId")
+    private long validationId;
 
     @NotNull
-    @Length(max = 100)
     @Column(name = "validationType")
     private String validationType;
 

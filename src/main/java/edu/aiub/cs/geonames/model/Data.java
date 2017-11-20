@@ -2,58 +2,92 @@ package edu.aiub.cs.geonames.model;
 
 import edu.aiub.cs.geonames.model.base.Location;
 import edu.aiub.cs.geonames.model.base.Region;
+import org.hibernate.annotations.*;
+import org.hibernate.validator.constraints.Length;
+
+import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
+
+import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 
 /**
  * Created by Sk.GolamMuhammad on 9/17/2017.
  * <p>
 
  */
+@Entity
 public class Data {
 
-    private int userId;
-    private int appInfoId;
-    private Location location;
-    private Region region;
+    @Id
+    @NotNull
+    @Column(name = "dataId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long dataId;
+
+    @NotNull
+    @Column(name = "userId")
+    private long userId;
+
+    @NotNull
+    @Column(name = "appInfoId")
+    private long appInfoId;
+
+    @NotNull
+    @Column(name = "locationId")
+    private long locationId;
+
+    @NotNull
+    @Column(name = "regionId")
+    private long regionId;
 
     public Data() {
     }
 
-    public Data(int userId, int appInfoId, Location location, Region region) {
+    public Data(long userId, long appInfoId, long locationId, long regionId) {
         this.userId = userId;
         this.appInfoId = appInfoId;
-        this.location = location;
-        this.region = region;
+        this.locationId = locationId;
+        this.regionId = regionId;
     }
 
-    public int getUserId() {
+    public long getDataId() {
+        return dataId;
+    }
+
+    public void setDataId(long dataId) {
+        this.dataId = dataId;
+    }
+
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 
-    public int getAppInfoId() {
+    public long getAppInfoId() {
         return appInfoId;
     }
 
-    public void setAppInfoId(int appInfoId) {
+    public void setAppInfoId(long appInfoId) {
         this.appInfoId = appInfoId;
     }
 
-    public Location getLocation() {
-        return location;
+    public long getLocationId() {
+        return locationId;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setLocationId(long locationId) {
+        this.locationId = locationId;
     }
 
-    public Region getRegion() {
-        return region;
+    public long getRegionId() {
+        return regionId;
     }
 
-    public void setRegion(Region region) {
-        this.region = region;
+    public void setRegionId(long regionId) {
+        this.regionId = regionId;
     }
 }

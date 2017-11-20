@@ -48,8 +48,8 @@ public class UserController {
         try {
             User user = mapper.readValue(json, User.class);
             userRepository.save(user);
-            return mapper.writeValueAsString(user);
-            //return "{status:'OK'}";
+            //return mapper.writeValueAsString(user);
+            return "{status:'OK'}";
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {

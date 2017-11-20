@@ -33,20 +33,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "userId")
-    private int userId;
+    private long userId;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "name")
     private String name;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "type")
     private String type;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "fullName")
     private String fullName;
 
@@ -55,18 +52,15 @@ public class User {
     private String dateOfBirth;
 
     @NotNull
-    @Length(max = 100)
     @Column(name = "gender")
     private String gender;
 
     @NotNull
-    @Length(max = 500)
     @Column(name = "address")
     private String address;
 
     @NotNull
-    @Length(max = 13)
-    @Column(name = "phone", length = 13)
+    @Column(name = "phone")
     private String phone;
 
     @NotNull
@@ -74,12 +68,10 @@ public class User {
     private int age;
 
     @NotNull
-    @Length(max = 100)
     @Column(name = "country")
     private String country;
 
     @NotNull
-    @Length(max = 300)
     @Column(name = "education")
     private String education;
 
@@ -100,11 +92,11 @@ public class User {
         this.education = education;
     }
 
-    public int getUserId() {
+    public long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(long userId) {
         this.userId = userId;
     }
 

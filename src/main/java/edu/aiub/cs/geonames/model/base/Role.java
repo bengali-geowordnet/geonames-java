@@ -23,22 +23,18 @@ public class Role {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Length(max = CD_ID_LENGTH)
-    @Column(name = "roleId", length = CD_ID_LENGTH)
-    private int roleId;
+    @Column(name = "roleId")
+    private long roleId;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "roleName")
     private String name;
 
     @NotNull
-    @Length(max = 200)
     @Column(name = "assignedTo")
     private String assignedTo;
 
     @NotNull
-    @Length(max = CD_ID_LENGTH)
-    @Column(name = "userId", length = CD_ID_LENGTH)
-    private int userId;
+    @Column(name = "userId")
+    private long userId;
 }

@@ -23,17 +23,14 @@ public class Region {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Length(max = CD_ID_LENGTH)
-    @Column(name = "regionId", length = CD_ID_LENGTH)
-    private int regionId;
+    @Column(name = "regionId")
+    private long regionId;
 
     @NotNull
-    @Length(max = 100)
     @Column(name = "name")
     private String name;
 
     @NotNull
-    @Length(max = 100)
     @Column(name = "type")
     private String type;
 
@@ -45,11 +42,11 @@ public class Region {
         this.type = type;
     }
 
-    public int getRegionId() {
+    public long getRegionId() {
         return regionId;
     }
 
-    public void setRegionId(int regionId) {
+    public void setRegionId(long regionId) {
         this.regionId = regionId;
     }
 
