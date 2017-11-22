@@ -1,20 +1,11 @@
 package edu.aiub.cs.geonames.model;
 
-import edu.aiub.cs.geonames.model.base.Location;
-import edu.aiub.cs.geonames.model.base.Region;
-import org.hibernate.annotations.*;
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
-import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
-
-import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 
 /**
  * Created by Sk.GolamMuhammad on 9/17/2017.
  * <p>
-
  */
 @Entity
 public class Data {

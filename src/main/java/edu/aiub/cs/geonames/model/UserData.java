@@ -6,7 +6,6 @@ import edu.aiub.cs.geonames.model.base.Region;
 /**
  * Created by Sk.GolamMuhammad on 9/17/2017.
  * <p>
-
  */
 public class UserData {
 

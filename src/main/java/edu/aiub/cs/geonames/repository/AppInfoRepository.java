@@ -5,7 +5,6 @@ package edu.aiub.cs.geonames.repository;
  */
 
 import edu.aiub.cs.geonames.model.base.AppInfo;
-import edu.aiub.cs.geonames.model.base.Location;
 import org.springframework.data.repository.CrudRepository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository

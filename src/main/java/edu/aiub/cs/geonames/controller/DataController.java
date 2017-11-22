@@ -23,22 +23,22 @@ import java.io.IOException;
  * Created by Farhan on 9/18/2017.
  * Receives the data sent to server.
  * https://stackoverflow.com/questions/1688099/converting-json-to-java
- {
- "appInfoId": 111,
- "userId": 222,
- "location": {
- "name": "",
- "longitude": 12.33,
- "latitude": 222.36,
- "altitude": 10,
- "elevation": 10,
- "type": ""
- },
- "region": {
- "name": "",
- "type": ""
- }
- }
+ * {
+ * "appKey": system_hash,
+ * "userKey": system_hash,
+ * "location": {
+ * "name": "",
+ * "longitude": 12.33,
+ * "latitude": 222.36,
+ * "altitude": 10,
+ * "elevation": 10,
+ * "type": ""
+ * },
+ * "region": {
+ * "name": "",
+ * "type": ""
+ * }
+ * }
  */
 @Controller
 @RequestMapping(path = "/data")
@@ -69,7 +69,7 @@ public class DataController {
             Region region = userData.getRegion();
             location = locationRepository.save(location);
             region = regionRepository.save(region);
-            Data data = new Data(userId,appInfoId,location.getLocationId(),region.getRegionId());
+            Data data = new Data(userId, appInfoId, location.getLocationId(), region.getRegionId());
             dataRepository.save(data);
             //return mapper.writeValueAsString(userData);
             return "{status:'OK'}";

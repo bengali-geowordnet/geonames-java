@@ -4,7 +4,6 @@ package edu.aiub.cs.geonames.repository;
  * Created by Sk.GolamMuhammad on 9/17/2017.
  */
 
-import edu.aiub.cs.geonames.model.base.Location;
 import edu.aiub.cs.geonames.model.base.Region;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,13 +1,7 @@
 package edu.aiub.cs.geonames.model.base;
 
-import org.hibernate.annotations.UpdateTimestamp;
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
-
-import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 
 /**
  * Created by Sk Golam Muhammad Hasnain on 10/19/17.
@@ -35,9 +29,20 @@ public class User {
     @Column(name = "userId")
     private long userId;
 
+    /**
+     * generated user token for data exchange
+     */
+    @NotNull
+    @Column(name = "token")
+    private String token;
+
     @NotNull
     @Column(name = "name")
     private String name;
+
+    @NotNull
+    @Column(name = "email")
+    private String email;
 
     @NotNull
     @Column(name = "type")
@@ -78,9 +83,10 @@ public class User {
     public User() {
     }
 
-    public User(String name, String type, String fullName, String dateOfBirth, String gender, String address,
-                String phone, int age, String country, String education) {
+    public User(String token, String name, String email, String type, String fullName, String dateOfBirth, String gender, String address, String phone, int age, String country, String education) {
+        this.token = token;
         this.name = name;
+        this.email = email;
         this.type = type;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
@@ -100,12 +106,28 @@ public class User {
         this.userId = userId;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getType() {

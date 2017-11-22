@@ -1,11 +1,7 @@
 package edu.aiub.cs.geonames.model.base;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
-import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 
 /**
  * Created by Farhan Ar Rafi on 10/17/17.
@@ -26,10 +22,30 @@ public class AppInfo {
     @Column(name = "appId")
     private long appId;
 
+    /**
+     * for android it will be the package name
+     */
     @NotNull
     @Column(name = "name")
     private String name;
 
+    /**
+     * generated app token for data exchange
+     */
+    @NotNull
+    @Column(name = "token")
+    private String token;
+
+    /**
+     * developer email address for identification of
+     */
+    @NotNull
+    @Column(name = "email")
+    private String email;
+
+    /**
+     * type of application like game, educational, navigation
+     */
     @NotNull
     @Column(name = "type")
     private String type;
@@ -37,8 +53,10 @@ public class AppInfo {
     public AppInfo() {
     }
 
-    public AppInfo(String name, String type) {
+    public AppInfo(String name, String token, String email, String type) {
         this.name = name;
+        this.token = token;
+        this.email = email;
         this.type = type;
     }
 
@@ -56,6 +74,22 @@ public class AppInfo {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getType() {

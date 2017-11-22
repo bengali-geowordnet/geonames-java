@@ -1,11 +1,7 @@
 package edu.aiub.cs.geonames.model.base;
 
-import org.hibernate.validator.constraints.Length;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
-import static edu.aiub.cs.geonames.utility.Constants.CD_ID_LENGTH;
 
 /**
  * Created by Sk Golam Muhammad Hasnain on 10/19/17.
