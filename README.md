@@ -25,3 +25,5 @@ http://localhost:8080/
 ## License
 
 All rights reserved.
+
+The JWI Library is under the copyright of [Mark A. Finlayson](https://users.cs.fiu.edu/~markaf/)

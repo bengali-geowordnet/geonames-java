@@ -45,19 +45,17 @@ import java.io.IOException;
 public class DataController {
 
     @Autowired
-    LocationRepository locationRepository;
+    private LocationRepository locationRepository;
 
     @Autowired
-    RegionRepository regionRepository;
+    private RegionRepository regionRepository;
 
     @Autowired
-    DataRepository dataRepository;
+    private DataRepository dataRepository;
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public @ResponseBody
     String addNewUser(@RequestParam String jsonStr) {
-
-
         ObjectMapper mapper = new ObjectMapper();
         UserData userData;
         try {
@@ -75,9 +73,9 @@ public class DataController {
             return "{status:'OK'}";
         } catch (JsonParseException e) {
             e.printStackTrace();
-        } catch (JsonMappingException e) {
+        }  catch (IOException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
