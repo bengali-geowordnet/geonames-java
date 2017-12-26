@@ -53,7 +53,7 @@ public class AppController {
             appInfo.setToken(token);
             appInfoRepository.save(appInfo);
             //return mapper.writeValueAsString(appInfo);
-            return String.format("{token:%s}", token);
+            return String.format("{\"token\": \"%s\"}", token);
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {
@@ -61,6 +61,6 @@ public class AppController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "{status:'ERROR'}";
+        return "{status:\"ERROR\"}";
     }
 }

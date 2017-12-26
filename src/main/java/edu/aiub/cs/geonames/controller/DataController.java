@@ -70,7 +70,7 @@ public class DataController {
             Data data = new Data(userId, appInfoId, location.getLocationId(), region.getRegionId());
             dataRepository.save(data);
             //return mapper.writeValueAsString(userData);
-            return "{status:'OK'}";
+            return "{status:\"OK\"}";
         } catch (JsonParseException e) {
             e.printStackTrace();
         }  catch (IOException e) {
@@ -79,6 +79,6 @@ public class DataController {
             e.printStackTrace();
         }
 
-        return "{status:'ERROR'}";
+        return "{status:\"ERROR\"}";
     }
 }

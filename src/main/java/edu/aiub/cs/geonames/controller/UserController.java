@@ -53,7 +53,7 @@ public class UserController {
             user.setToken(token);
             userRepository.save(user);
             //return mapper.writeValueAsString(user);
-            return String.format("{token:%s}", token);
+            return String.format("{\"token\": \"%s\"}", token);
         } catch (JsonParseException e) {
             e.printStackTrace();
         } catch (JsonMappingException e) {
@@ -61,6 +61,6 @@ public class UserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "{status:'ERROR'}";
+        return "{status:\"ERROR\"}";
     }
 }

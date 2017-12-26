@@ -9,6 +9,10 @@ This is the backend server for crowd-sourcing data for enriching Bengali Wordnet
 ## Using the API
 
 The server provides API for adding new Application, User and Adding Data.
+* Add the following header:
+`Content-Type: application/x-www-form-urlencoded`
+* Use `json` as String Parameter or Key
+* Data encoded in `x-www-form-urlencoded` format is only supported for now.
 
 #### 1. Adding a new Application:
 Send a `POST` request to the following URL:
@@ -80,7 +84,7 @@ If the request fails the following message will be sent in `JSON`:
 #### 3. Sending data to server:
 Send a `POST` request to the following URL:
 ```
-http://localhost:8080/user/add
+http://localhost:8080/data/add
 ```
 Use the following JSON format to add a new application.
 * Please use application key received as token.
