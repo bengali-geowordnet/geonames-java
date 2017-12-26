@@ -18,6 +18,7 @@ http://localhost:8080/app/add
 Use the following JSON format to add a new application.
 * Please use package name as application name(for android apps).
 * For apps (i.e. webapps) please use the the following format.
+
 ```
 {
     "name": "com.yoursite.appname",
@@ -47,6 +48,7 @@ Use the following JSON format to add a new application.
 * Currently only user is allowed for type.
 * Please use `ISO 3166-1 alpha-2` format for country codes.
 No other format is accepted.
+
 ```
 {
   "name": "yourRealName",
@@ -83,7 +85,7 @@ http://localhost:8080/user/add
 Use the following JSON format to add a new application.
 * Please use application key received as token.
 * Please use user key received as token.
-* 
+
 ```
 {  
     "appKey":"system_hash",
