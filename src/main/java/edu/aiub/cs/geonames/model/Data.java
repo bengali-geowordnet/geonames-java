@@ -1,41 +1,84 @@
 package edu.aiub.cs.geonames.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Sk.GolamMuhammad on 9/17/2017.
+ * <p>
  */
+@Entity
 public class Data {
-    private Geoname geoname;
-    private User user;
+
+    @Id
+    @NotNull
+    @Column(name = "dataId")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long dataId;
+
+    @NotNull
+    @Column(name = "userId")
+    private long userId;
+
+    @NotNull
+    @Column(name = "appInfoId")
+    private long appInfoId;
+
+    @NotNull
+    @Column(name = "locationId")
+    private long locationId;
+
+    @NotNull
+    @Column(name = "regionId")
+    private long regionId;
 
     public Data() {
     }
 
-    public Data(Geoname geoname, User user) {
-        this.geoname = geoname;
-        this.user = user;
+    public Data(long userId, long appInfoId, long locationId, long regionId) {
+        this.userId = userId;
+        this.appInfoId = appInfoId;
+        this.locationId = locationId;
+        this.regionId = regionId;
     }
 
-    public Geoname getGeoname() {
-        return geoname;
+    public long getDataId() {
+        return dataId;
     }
 
-    public void setGeoname(Geoname geoname) {
-        this.geoname = geoname;
+    public void setDataId(long dataId) {
+        this.dataId = dataId;
     }
 
-    public User getUser() {
-        return user;
+    public long getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public long getAppInfoId() {
+        return appInfoId;
+    }
+
+    public void setAppInfoId(long appInfoId) {
+        this.appInfoId = appInfoId;
+    }
+
+    public long getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(long locationId) {
+        this.locationId = locationId;
+    }
+
+    public long getRegionId() {
+        return regionId;
+    }
+
+    public void setRegionId(long regionId) {
+        this.regionId = regionId;
     }
 }
