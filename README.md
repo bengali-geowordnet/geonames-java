@@ -17,7 +17,7 @@ The server provides API for adding new Application, User and Adding Data.
 #### 1. Adding a new Application:
 Send a `POST` request to the following URL:
 ```
-http://localhost:8080/app/add
+http://localhost:8080/v1/apps/add
 ```
 Use the following JSON format to add a new application.
 * Please use package name as application name(for android apps).
@@ -46,7 +46,7 @@ If the request fails the following message will be sent in `JSON`:
 #### 2. Adding a new User:
 Send a `POST` request to the following URL:
 ```
-http://localhost:8080/user/add
+http://localhost:8080/v1/users/add
 ```
 Use the following JSON format to add a new application.
 * Currently only user is allowed for type.
@@ -84,7 +84,7 @@ If the request fails the following message will be sent in `JSON`:
 #### 3. Sending data to server:
 Send a `POST` request to the following URL:
 ```
-http://localhost:8080/data/add
+http://localhost:8080/v1/data/add
 ```
 Use the following JSON format to add a new application.
 * Please use application key received as token.

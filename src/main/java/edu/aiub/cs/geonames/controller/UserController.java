@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * }
  */
 @Controller
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/v1/users")
 public class UserController {
 
     private static final String template = "Hello, %s!";

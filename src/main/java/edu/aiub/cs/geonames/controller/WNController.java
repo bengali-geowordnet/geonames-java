@@ -19,7 +19,7 @@ import java.net.URL;
  * Please visit https://projects.csail.mit.edu/jwi/api/index.html for more information.
  */
 @Controller
-@RequestMapping(path = "/wn")
+@RequestMapping(path = "/v1/wn")
 public class WNController {
 
     @RequestMapping(value = "/sense", method = RequestMethod.GET)

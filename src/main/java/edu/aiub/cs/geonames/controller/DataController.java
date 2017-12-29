@@ -41,7 +41,7 @@ import java.io.IOException;
  * }
  */
 @Controller
-@RequestMapping(path = "/data")
+@RequestMapping(path = "/v1/data")
 public class DataController {
 
     @Autowired
