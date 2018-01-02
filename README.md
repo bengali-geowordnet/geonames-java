@@ -125,6 +125,11 @@ If the request fails the following message will be sent in `JSON`:
 * **Farhan Ar Rafi** - *Architecture and Development* - [Personal Site](https://farhanarrafi.com)
 * **Sk. Golam Mohammad Hasnain** - *Development* - [Profile](https://github.com/Oithe)
 
+## References for Designing API
+* [A Massive Guide to Building a RESTful API for Your Mobile App](https://savvyapps.com/blog/how-to-build-restful-api-mobile-app)
+* [Slate](https://github.com/lord/slate)
+* [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
+
 
 ## License
 
