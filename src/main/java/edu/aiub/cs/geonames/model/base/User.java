@@ -32,7 +32,6 @@ public class User {
     /**
      * generated user token for data exchange
      */
-    @NotNull
     @Column(name = "token")
     private String token;
 

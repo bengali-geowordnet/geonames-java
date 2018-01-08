@@ -7,17 +7,18 @@ import edu.aiub.cs.geonames.model.base.User;
 import edu.aiub.cs.geonames.repository.UserRepository;
 import edu.aiub.cs.geonames.utility.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * Created by Sk.GolamMuhammad on 9/17/2017.
+ *
+ * https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/
  * {
  * "name": "A",
  * "email": "abc@example.com",
@@ -62,5 +63,41 @@ public class UserController {
             e.printStackTrace();
         }
         return "{status:\"ERROR\"}";
+    }
+
+    @PostMapping()
+    ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+        String token = Utils.getUserToken(user.getName(),user.getEmail(), user.getPhone());
+        user.setToken(token);
+        //return mapper.writeValueAsString(user);
+        return ResponseEntity.ok().body(userRepository.save(user));
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<User> updateUser(@Valid @RequestBody User userDetails,
+                                           @PathVariable(value = "id") long userId) {
+        User user = userRepository.findOne(userId);
+        if(user==null) {
+            return ResponseEntity.notFound().build();
+        }
+        user.setFullName(userDetails.getFullName());
+        user.setDateOfBirth(userDetails.getDateOfBirth());
+        user.setAddress(userDetails.getAddress());
+        user.setPhone(userDetails.getPhone());
+        user.setAge(userDetails.getAge());
+        user.setCountry(userDetails.getCountry());
+        user.setEducation(userDetails.getEducation());
+
+        return ResponseEntity.ok(userRepository.save(user));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) {
+
+        User user = userRepository.findOne(userId);
+        if(user==null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(user);
     }
 }

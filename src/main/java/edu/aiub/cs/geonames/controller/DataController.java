@@ -55,7 +55,36 @@ public class DataController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public @ResponseBody
-    String addNewUser(@RequestParam String jsonStr) {
+    String addNewData(@RequestParam String jsonStr) {
+        ObjectMapper mapper = new ObjectMapper();
+        UserData userData;
+        try {
+
+            userData = mapper.readValue(jsonStr, UserData.class);
+            int appInfoId = userData.getAppInfoId();
+            int userId = userData.getUserId();
+            Location location = userData.getLocation();
+            Region region = userData.getRegion();
+            location = locationRepository.save(location);
+            region = regionRepository.save(region);
+            Data data = new Data(userId, appInfoId, location.getLocationId(), region.getRegionId());
+            dataRepository.save(data);
+            //return mapper.writeValueAsString(userData);
+            return "{status:\"OK\"}";
+        } catch (JsonParseException e) {
+            e.printStackTrace();
+        }  catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "{status:\"ERROR\"}";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public @ResponseBody
+    String addData(@RequestParam String jsonStr) {
         ObjectMapper mapper = new ObjectMapper();
         UserData userData;
         try {

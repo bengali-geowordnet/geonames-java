@@ -11,5 +11,4 @@ import org.springframework.data.repository.CrudRepository;
 // CRUD refers Create, Read, Update, Delete
 
 public interface AppInfoRepository extends CrudRepository<AppInfo, Long> {
-
 }

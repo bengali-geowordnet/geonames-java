@@ -32,7 +32,6 @@ public class AppInfo {
     /**
      * generated app token for data exchange
      */
-    @NotNull
     @Column(name = "token")
     private String token;
 

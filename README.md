@@ -129,7 +129,7 @@ If the request fails the following message will be sent in `JSON`:
 * [A Massive Guide to Building a RESTful API for Your Mobile App](https://savvyapps.com/blog/how-to-build-restful-api-mobile-app)
 * [Slate](https://github.com/lord/slate)
 * [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
-
+* [Building REST services with Spring](https://spring.io/guides/tutorials/bookmarks/)
 
 ## License
 
