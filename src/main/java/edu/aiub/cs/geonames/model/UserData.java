@@ -9,35 +9,35 @@ import edu.aiub.cs.geonames.model.base.Region;
  */
 public class UserData {
 
-    private int userId;
-    private int appInfoId;
+    private String userKey;
+    private String appKey;
     private Location location;
     private Region region;
 
     public UserData() {
     }
 
-    public UserData(int userId, int appInfoId, Location location, Region region) {
-        this.userId = userId;
-        this.appInfoId = appInfoId;
+    public UserData(String userKey, String appKey, Location location, Region region) {
+        this.userKey = userKey;
+        this.appKey = appKey;
         this.location = location;
         this.region = region;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUserKey() {
+        return userKey;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserKey(String userKey) {
+        this.userKey = userKey;
     }
 
-    public int getAppInfoId() {
-        return appInfoId;
+    public String getAppKey() {
+        return appKey;
     }
 
-    public void setAppInfoId(int appInfoId) {
-        this.appInfoId = appInfoId;
+    public void setAppKey(String appKey) {
+        this.appKey = appKey;
     }
 
     public Location getLocation() {

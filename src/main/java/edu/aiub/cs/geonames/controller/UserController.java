@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * }
  */
 @Controller
-@RequestMapping(path = "/v1/users")
+@RequestMapping(path = "api/v1/users")
 public class UserController {
 
     private static final String template = "Hello, %s!";

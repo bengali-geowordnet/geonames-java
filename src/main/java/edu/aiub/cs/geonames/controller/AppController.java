@@ -28,7 +28,7 @@ import java.io.IOException;
  * }
  */
 @Controller
-@RequestMapping(path = "/v1/apps")
+@RequestMapping(path = "api/v1/apps")
 public class AppController {
 
     @Autowired

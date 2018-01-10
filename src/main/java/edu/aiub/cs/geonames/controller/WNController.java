@@ -11,10 +11,8 @@ import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
@@ -28,11 +26,10 @@ import java.util.List;
  * Please visit https://projects.csail.mit.edu/jwi/api/index.html for more information.
  */
 @Controller
-@RequestMapping(path = "/v1/wn")
+@RequestMapping(path = "api/v1/wn")
 public class WNController {
 
-    @RequestMapping(value = "/pos/{pos}/sense/{concept}", method = RequestMethod.GET)
-    public @ResponseBody
+    @GetMapping(value = "/pos/{pos}/sense/{concept}")
     String getSense(@PathVariable String pos, @PathVariable String concept) {
         File file = new File("files/dict");
         URL fileUrl = null;
@@ -73,7 +70,7 @@ public class WNController {
                 IWord word = dict.getWord(wordID);
                 Word wnWord = new Word(wordID.toString(),word.getLemma(),word.getSynset().getGloss());
                 listOfWords.add(wnWord);
-                System.out.println(word.getSynset().getGloss());
+                //System.out.println(word.getSynset().getGloss());
             }
             return new ObjectMapper().writeValueAsString(listOfWords);
         } catch (IOException e) {

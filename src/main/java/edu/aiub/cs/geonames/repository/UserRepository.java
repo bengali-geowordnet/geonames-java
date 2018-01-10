@@ -9,7 +9,8 @@ import org.springframework.data.repository.CrudRepository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
+// https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.at-query
 
 public interface UserRepository extends CrudRepository<User, Long> {
-
+    User findByToken(String token);
 }
