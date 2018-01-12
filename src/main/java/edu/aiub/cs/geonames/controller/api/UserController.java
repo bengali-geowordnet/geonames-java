@@ -66,7 +66,7 @@ public class UserController {
     }
 
     @PostMapping()
-    ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
         String token = Utils.getUserToken(user.getName(),user.getEmail(), user.getPhone());
         user.setToken(token);
         //return mapper.writeValueAsString(user);

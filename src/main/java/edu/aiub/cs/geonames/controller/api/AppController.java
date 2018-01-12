@@ -1,12 +1,9 @@
 package edu.aiub.cs.geonames.controller.api;
 
 import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.aiub.cs.geonames.model.Data;
 import edu.aiub.cs.geonames.model.base.AppInfo;
-import edu.aiub.cs.geonames.model.base.User;
 import edu.aiub.cs.geonames.repository.AppInfoRepository;
 import edu.aiub.cs.geonames.utility.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +66,7 @@ public class AppController {
      * @return sends back response code in JSON format
      */
     @PostMapping
-    ResponseEntity<AppInfo> createApp(@Valid @RequestBody AppInfo appInfo) {
+    public ResponseEntity<AppInfo> createApp(@Valid @RequestBody AppInfo appInfo) {
         String token = Utils.getAppToken(appInfo.getName(), appInfo.getEmail());
         appInfo.setToken(token);
         return ResponseEntity.ok().body(appInfoRepository.save(appInfo));
@@ -82,8 +79,7 @@ public class AppController {
      * @return sends back response code in JSON format
      */
     @GetMapping(value = "/{id}")
-    public @ResponseBody
-    ResponseEntity<AppInfo> getAppById(@PathVariable(value = "id") Long appId) {
+    public ResponseEntity<AppInfo> getAppById(@PathVariable(value = "id") Long appId) {
 
         AppInfo app = appInfoRepository.findOne(appId);
         if(app==null) {

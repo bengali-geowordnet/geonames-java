@@ -1,7 +1,5 @@
 package edu.aiub.cs.geonames.model.wn;
 
-import javax.persistence.Entity;
-
 /**
  * Created by bjit on 1/8/18.
  */

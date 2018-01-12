@@ -1,8 +1,6 @@
 package edu.aiub.cs.geonames.controller.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import edu.aiub.cs.geonames.model.wn.Word;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
@@ -11,12 +9,12 @@ import edu.mit.jwi.item.IWord;
 import edu.mit.jwi.item.IWordID;
 import edu.mit.jwi.item.POS;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.Reader;
-import java.io.StringReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -30,7 +28,7 @@ import java.util.List;
 public class WNController {
 
     @GetMapping(value = "/pos/{pos}/sense/{concept}")
-    String getSense(@PathVariable String pos, @PathVariable String concept) {
+    public String getSense(@PathVariable String pos, @PathVariable String concept) {
         File file = new File("files/dict");
         URL fileUrl = null;
         try {
