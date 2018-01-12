@@ -1,4 +1,4 @@
-package edu.aiub.cs.geonames.controller;
+package edu.aiub.cs.geonames.controller.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;

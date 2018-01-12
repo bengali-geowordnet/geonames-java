@@ -1,4 +1,4 @@
-package edu.aiub.cs.geonames.controller;
+package edu.aiub.cs.geonames.controller.api;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -90,8 +90,13 @@ public class DataController {
 
     @PostMapping
     ResponseEntity<Data> createData(@Valid @RequestBody UserData userData) {
-        long appInfoId = appInfoRepository.findByToken(userData.getAppKey()).getAppId();
-        long userId = userRepository.findByToken(userData.getUserKey()).getUserId();
+        AppInfo appInfo = appInfoRepository.findByToken(userData.getAppKey());
+        User user = userRepository.findByToken(userData.getUserKey());
+        if(appInfo == null || user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        long appInfoId = appInfo.getAppId();
+        long userId = user.getUserId();
         Location location = userData.getLocation();
         Region region = userData.getRegion();
         location = locationRepository.save(location);
